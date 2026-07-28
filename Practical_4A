@@ -1,0 +1,40 @@
+<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+    <div>
+
+        <br />
+        Student name :-<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <br />
+        <asp:RadioButtonList ID="RadioButtonList1" runat="server">
+            <asp:ListItem Value="M">Male</asp:ListItem>
+            <asp:ListItem Value="F">Female</asp:ListItem>
+            <asp:ListItem Value="O">Others</asp:ListItem>
+        </asp:RadioButtonList>
+        <br />
+        <asp:DropDownList ID="DropDownList1" runat="server" Height="36px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Width="125px">
+            <asp:ListItem Value="s">Select a option</asp:ListItem>
+            <asp:ListItem>BSC IT</asp:ListItem>
+            <asp:ListItem>BSC CS</asp:ListItem>
+            <asp:ListItem>BCA</asp:ListItem>
+            <asp:ListItem></asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        <asp:CheckBox ID="CheckBox1" runat="server" Text="I accept Terms and Conditions" />
+        <br />
+        <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+        <br />
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+        <br />
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+
+    </div>
+</asp:Content>
+
+Submit:
+string name = TextBox1.Text;
+string gender = RadioButtonList1.Text;
+string course = DropDownList1.Text;
+string date = Calendar1.SelectedDate.ToString();
+Label1.Text = name + "<br/>" + gender + "<br/>" + course + "<br/>" + date;
